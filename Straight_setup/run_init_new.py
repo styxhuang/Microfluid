@@ -19,7 +19,9 @@ N_drop = 1 #number of droplets, only 0 or 1
 r_drop = 2.0 #radius of droplet
 lz = 15.6
 box_len = lx = ly = 15.0
-mass = 0.10
+id = get_array_id();
+mass_lst = np.linspace(0.001,0.1,10)
+mass = mass_lst[id]
 
 # dumps
 dump_period = 1e2
@@ -47,7 +49,7 @@ def get_array_id():
 
 # set up the initial and final box dimensions
 # beads are all diameter = 1.0
-id = get_array_id();
+
 fName = '-eql-' + str(int(id) + 1)
 
 # random solvent **placer**, no system init via hoomd

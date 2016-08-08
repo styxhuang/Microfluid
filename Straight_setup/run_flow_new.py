@@ -30,7 +30,7 @@ fName = '-eql-' + str(int(id) + 1)
 system = init.read_xml(filename='Init' + fName + '.xml')
 
 # force params
-fx_arr = [0.005, 0.01, 0.02, 0.04]
+fx_arr = np.linspace(0.001,0.1,10)
 fx_fnl = fx_arr[id]
 
 # pair forces
