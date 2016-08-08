@@ -19,6 +19,15 @@ N_drop = 1 #number of droplets, only 0 or 1
 r_drop = 2.0 #radius of droplet
 lz = 15.6
 box_len = lx = ly = 15.0
+
+# get the job index from PBS_ARRAYID, or return 0 if it is not specified (for test jobs)
+def get_array_id():
+    pbs_arrayid = os.getenv('PBS_ARRAYID');
+    if pbs_arrayid is None:
+        return 0
+    else:
+        return int(pbs_arrayid) - 1;
+
 id = get_array_id();
 mass_lst = np.linspace(0.001,0.1,10)
 mass = mass_lst[id]
@@ -39,13 +48,6 @@ a = ((2./3.*m.pi)/wall_vf)**(1./3.)
 # solve for the N_solvent from given volume fraction
 N_solv = int(6/m.pi*solv_vf*lz*ly*lx)
 
-# get the job index from PBS_ARRAYID, or return 0 if it is not specified (for test jobs)
-def get_array_id():
-    pbs_arrayid = os.getenv('PBS_ARRAYID');
-    if pbs_arrayid is None:
-        return 0
-    else:
-        return int(pbs_arrayid) - 1;
 
 # set up the initial and final box dimensions
 # beads are all diameter = 1.0
