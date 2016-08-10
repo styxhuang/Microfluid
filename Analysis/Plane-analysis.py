@@ -38,9 +38,9 @@ def sampleDistances(nice_level,data):
     end=max(x)
     start=beg
     interval=(end-beg)/nice_level
-    print "interval",interval
-    print "beg",beg
-    print "end",end
+    #print "interval",interval
+    #print "beg",beg
+    #print "end",end
     a={} #position
     b={} #velocity
     c=[] #plot data
@@ -58,7 +58,7 @@ def sampleDistances(nice_level,data):
 
 id = sys.argv[1]
 [data,v_max] = readData(id)
-print len(data)
+#print len(data)
 a=sampleDistances(500,data)
 f = file("plot-data.txt","w")
 for r in a:
