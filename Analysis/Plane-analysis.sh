@@ -6,7 +6,7 @@ for frame in $(ls dump*zip)
     do
     echo "analysing $frame..."
     id=$(sed "s/dump-eql-//" <<< $(sed "s/.zip//" <<< $frame))
-    python -m gtar.zip -o $frame $frame
+    python -m gtar.fix -o $frame $frame
     python Plane-analysis.py $id
     plot='set term pngcairo enhanced linewidth 2 size 768,512
 set output "z-v'$id'.png"
