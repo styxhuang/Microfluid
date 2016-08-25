@@ -1,3 +1,4 @@
+#Notice for the name of the particle is S2 or micelle
 rm -rf data
 mkdir data
 mkdir data/PNG
