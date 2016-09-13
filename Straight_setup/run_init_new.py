@@ -30,8 +30,8 @@ def get_array_id():
 
 id = get_array_id();
 mass_lst = np.linspace(0.001,0.1,10)
-mass = mass_lst[id]
-
+#mass = mass_lst[id]
+mass = 1.0
 # dumps
 dump_period = 1e2
 rsz_steps = 1e3
