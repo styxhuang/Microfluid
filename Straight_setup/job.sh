@@ -1,9 +1,9 @@
 #PBS -N Micro
 #PBS -l nodes=1:gpus=1,walltime=12:00:00,qos=flux
-#PBS -A rlarson_fluxoe
+#PBS -A rlarson_fluxg
 #PBS -V
 #PBS -j oe
-#PBS -q fluxoe
+#PBS -q fluxg
 
 cd ${PBS_O_WORKDIR}
 
