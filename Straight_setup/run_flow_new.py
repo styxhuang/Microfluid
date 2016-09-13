@@ -30,16 +30,18 @@ fName = '-eql-' + str(int(id) + 1)
 system = init.read_xml(filename='Init' + fName + '.xml')
 
 # force params
-fx_arr = np.linspace(0.001,0.1,10)
+fx_arr = np.linspace(0.0001,0.1,10)
 fx_fnl = fx_arr[id]
-
+gamma_ss = 1.0
+gamma_dd = 1.0
+gamma_sd = 2.0/(1.0/gamma_ss+1.0/gamma_dd)
 # pair forces
 dpd = pair.dpd(r_cut=1.0, T=1.)
 dpd.pair_coeff.set('wall', 'S1', A=3.0, gamma= 1.0)
 dpd.pair_coeff.set('wall', 'wall', A=0.0, gamma= 1.0)
-dpd.pair_coeff.set('S2','S1',A=60.0,gamma=1.0)
-dpd.pair_coeff.set('S1','S1',A=25.0,gamma=1.0)
-dpd.pair_coeff.set('S2','S2',A=25.0,gamma=1.0)
+dpd.pair_coeff.set('S2','S1',A=60.0,gamma=gamma_sd)
+dpd.pair_coeff.set('S1','S1',A=25.0,gamma=gamma_ss)
+dpd.pair_coeff.set('S2','S2',A=25.0,gamma=gamma_dd)
 dpd.pair_coeff.set('S2','wall',A=10.0,gamma=1.0)
 integrate.mode_standard(dt=0.01)
 
@@ -54,7 +56,7 @@ integrate.nve(group=notWALL)
 nlist.reset_exclusions(exclusions = ['bond', 'body'])
 
 #start the logs, including restart file
-#dump.dcd('traj-flow' + fName + '.dcd', period = dump_period, overwrite = True)
+dump.dcd('traj-flow' + fName + '.dcd', period = dump_period, overwrite = True)
 
 # dump the system data - position, velocity
 # NOTE: this is compressed system data that
