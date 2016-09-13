@@ -1,5 +1,5 @@
 #This script is for Python3. Differences from python 2 is the "map" command and write command
-
+#Plane fluid analysis
 import gtar
 import sys
 import numpy as np
@@ -51,7 +51,7 @@ def sampleDistances(nice_level,data):
     for i in range(0,nice_level,1):
         bin=beg+interval*(i+1)
         a=np.mean(x[np.where(np.logical_and(x>start,x<bin))])
-        if a<0:#boundary condition, since wall is put in the middle of the tube
+        if a<0:# peridical boundary condition, since wall is put in the middle of the tube
             a=a+15.6
         else:
             a=a
