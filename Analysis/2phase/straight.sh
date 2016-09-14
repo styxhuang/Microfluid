@@ -1,3 +1,4 @@
+#obtain data from pos file
 rm -rf data
 mkdir data
 mkdir data/PNG

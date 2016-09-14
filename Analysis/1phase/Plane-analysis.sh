@@ -8,7 +8,7 @@ for frame in $(ls dump*zip)
     id=$(sed "s/dump-eql-//" <<< $(sed "s/.zip//" <<< $frame))
     python -m gtar.fix -o $frame $frame
     python Plane-analysis.py $id
-    plot='set term pngcairo enhanced linewidth 2 size 768,512
+    plot='set term pngcairo enhanced font "Times New Roman,12" color solid linewidth 2 size 768,512
 set output "z-v'$id'.png"
 set xlabel "z-position"
 set ylabel "v_x"
@@ -23,7 +23,7 @@ q'
     mv *png figure/
     done
 cd data-file
-plot='set term pngcairo enhanced linewidth 2 size 768,512
+plot='set term pngcairo enhanced font "Times New Roman,12" color solid linewidth 2 size 768,512
 set output "z-v.png"
 set xlabel "z-position"
 set ylabel "v_x"
