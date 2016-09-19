@@ -15,13 +15,13 @@ for b in $(ls dump_flow*pos)
     repeat=$(expr $(expr $line - $frame) / $frame) #get S2 particles number
     echo $repeat > 3.txt
     echo $frame >> 3.txt
-    echo $i is analysing ...
+    echo $id is analysing ...
     python 2phase.py $name
     echo done
     plotData='set term pngcairo enhanced font "Times-New-Roman,12" linewidth 2 size 768,1024
 set output "'$name'.png"
 set multiplot layout 2,1
-set yrange [0:16]
+set yrange [0:40]
 set xlabel "frame"
 set ylabel "Dz"
 set title "Dz"
@@ -36,6 +36,6 @@ q'
     echo "$plotData" > draw.txt
     gnuplot < draw.txt
     mv *.png data/PNG
-    mv '$name'.txt data/result
+    mv $name.txt data/result
     rm 1.txt 2.txt 3.txt draw.txt
 done

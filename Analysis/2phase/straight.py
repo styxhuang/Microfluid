@@ -45,7 +45,7 @@ def Dz(f):
     z=[]
     for i in Z:
         if i < 0:
-            i = i+15.6
+            i = i+40
         z.append(i)
     dz=np.mean(z)
     return dz
@@ -63,21 +63,21 @@ def check_pbc(f):
     z=f[2]
     x_real=[]
     z_real=[]
-    pbc_x1 = all(x > -7 for x in f[0])
-    pbc_x2 = all(x < 7 for x in f[0])
-    pbc_z1 = all(z > -7 for z in f[2])
-    pbc_z2 = all(z < 7 for z in f[2])
+    pbc_x1 = all(x > -17.0 for x in f[0])
+    pbc_x2 = all(x < 17.0 for x in f[0])
+    pbc_z1 = all(z > -17.0 for z in f[2])
+    pbc_z2 = all(z < 17.0 for z in f[2])
     if (pbc_x1 == False and pbc_x2 == False):
         for i in x:
             if i < 0:
-                i = i+15.6
+                i = i+40.0
             x_real.append(i)
     else:
         x_real=x
     if (pbc_z1 == False and  pbc_z2 == False):
         for ii in z:
             if ii < 0:
-                ii = ii+15.6
+                ii = ii+40.0
             z_real.append(ii)
     else:
         z_real = z
