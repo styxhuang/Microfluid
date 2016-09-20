@@ -1,0 +1,12 @@
+set term pngcairo enhanced font "Times New Roman,12" color solid linewidth 1 size 1024,768
+set output "2phase-ori.png"
+set xlabel "X-axis"
+set ylabel "Y-axis"
+set zlabel "Z-axis"
+set xrange [0:20]
+set yrange [0:20]
+set zrange [0:40]
+splot "fluid-plot-data.txt" u 1:2:3:(0.03*$4):(0.03*$5):(0.03*$6) w vector t "fluid","droplet-plot-data.txt" u 1:2:3:(0.03*$4):(0.03*$5):(0.03*$6) w vector t "droplet"
+q
+
+
