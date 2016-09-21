@@ -1,4 +1,4 @@
-#PBS -N rRRR-gammaGGG
+#PBS -N rRRR-Aaaa-gammaGGG
 #PBS -l nodes=1:gpus=1,walltime=4:00:00,qos=flux
 #PBS -A rlarson_fluxg
 #PBS -V

@@ -11,8 +11,8 @@ rm -rf gamma*
 i=$(cat Input.dat) #dat file include in this file is epsilon
 ii=$(cat Input2.dat)
 cd ..
-mkdir r$radius
-cd r$radius
+mkdir lambda1r$radius
+cd lambda1r$radius
 for id in $i
     do
     mkdir A-$id
@@ -26,6 +26,7 @@ for id in $i
         cp ../../../Initial-channel/straight* ./
         cp ../../../Initial-channel/Plane* ./
         sed -i "s/RRR/$radius/" job.sh
+        sed -i "s/aaa/$id/" job.sh
         sed -i "s/GGG/$j/" job.sh
         sed -i "s/RRR/$radius/" run_init*
         sed -i "s/GGG/$j/" run_flow*
