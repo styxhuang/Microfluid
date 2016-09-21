@@ -30,7 +30,8 @@ fName = '-eql-' + str(int(id) + 1)
 system = init.read_xml(filename='Init' + fName + '.xml')
 
 # force params
-fx_arr = np.linspace(0.001,0.019,10)
+#fx_arr = np.linspace(0.001,0.019,10)
+fx_arr = np.linspace(fstart,fend,NUM)
 fx_fnl = fx_arr[id]
 lbda = 1 #gamma_ss/gamma_dd
 gamma_ss = GGG
