@@ -35,7 +35,7 @@ set title "Dzx"
 set ylabel "Dzx"
 unset yrange
 unset ytic
-set yrange [-0.3:0.3]
+set yrange [-0.5:0.5]
 set ytic 0.02
 plot "'$name'.txt" u 2 w p t "Dzx"
 q'
