@@ -54,7 +54,7 @@ def Dzx(f):
     rx=gyration(f)[0]
     rz=gyration(f)[2]
     rz_rx=rz/rx
-    dzx=(rz_rx-1)/(rz_rx+1)
+    dzx=abs((rz_rx-1)/(rz_rx+1))
     return dzx
     
 def check_pbc(f):
